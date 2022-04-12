@@ -36,8 +36,10 @@ namespace ProblematicProblem
 
             Console.WriteLine();
             Console.Write("What is your age? ");
-            int userAge = Convert.ToInt32(Console.ReadLine());
-            if (userAge < 0)
+            var answer = Console.ReadLine();
+            var userAge = int.TryParse(answer, out int xy);
+
+            if (userAge == false)
             {
                 Console.WriteLine("Sorry, not a valid age");
                 return;
@@ -62,7 +64,7 @@ namespace ProblematicProblem
             if (addToList == false)
             {
                 Program.BufferGraphic();
-                Program.RandoGenerate(userAge, userName);
+                Program.RandoGenerate(xy, userName);
             }
 
 
